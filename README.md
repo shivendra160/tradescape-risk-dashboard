@@ -20,7 +20,7 @@ tradescape-risk-dashboard/
 
 ## How to run
 
-Requires Node 20+ (uses Node's built-in `node:sqlite`, which is available from Node 22.5+ / stable enough on Node 24 — tested on Node 24).
+Requires Node 23+ (uses Node's built-in `node:sqlite`, which needs a `--experimental-sqlite` flag on Node 22.x but works flag-free from Node 23 on — tested on Node 24).
 
 From the project root:
 
