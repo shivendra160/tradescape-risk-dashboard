@@ -1,0 +1,301 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #131a22;
+  --panel-border: #22303c;
+  --text: #e8edf2;
+  --text-muted: #8fa0ad;
+  --positive: #33d17a;
+  --negative: #f2545b;
+  --safe: #33d17a;
+  --warning: #f2a93b;
+  --danger: #f2545b;
+  --accent: #4da8ff;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.app-header {
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+}
+
+.app-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.stat-sublabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.tone-positive .stat-value {
+  color: var(--positive);
+}
+
+.tone-negative .stat-value {
+  color: var(--negative);
+}
+
+/* Risk panel */
+.risk-panel {
+  border-width: 1px;
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.risk-header h2 {
+  margin: 0;
+}
+
+.status-badge {
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.risk-message {
+  color: var(--text-muted);
+  margin: 0 0 16px;
+}
+
+.status-safe .status-badge {
+  background: rgba(51, 209, 122, 0.15);
+  color: var(--safe);
+}
+.status-safe {
+  border-color: rgba(51, 209, 122, 0.4);
+}
+
+.status-warning .status-badge {
+  background: rgba(242, 169, 59, 0.15);
+  color: var(--warning);
+}
+.status-warning {
+  border-color: rgba(242, 169, 59, 0.4);
+}
+
+.status-danger .status-badge {
+  background: rgba(242, 84, 91, 0.15);
+  color: var(--danger);
+}
+.status-danger {
+  border-color: rgba(242, 84, 91, 0.4);
+}
+
+.risk-bars {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.risk-bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+}
+
+.risk-bar-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.risk-bar-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.risk-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.bar-safe {
+  background: var(--safe);
+}
+.bar-warning {
+  background: var(--warning);
+}
+.bar-danger {
+  background: var(--danger);
+}
+
+.risk-bar-pct {
+  font-size: 0.8rem;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+/* Trade table */
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trade-table th,
+.trade-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 0.9rem;
+}
+
+.trade-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.text-positive {
+  color: var(--positive);
+  font-weight: 600;
+}
+
+.text-negative {
+  color: var(--negative);
+  font-weight: 600;
+}
+
+.empty-state {
+  color: var(--text-muted);
+}
+
+/* Equity curve */
+.equity-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.baseline {
+  stroke: var(--text-muted);
+  stroke-dasharray: 4 4;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.equity-line {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+
+.point-positive {
+  fill: var(--positive);
+}
+
+.point-negative {
+  fill: var(--negative);
+}
+
+.equity-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.equity-labels span {
+  flex: 1;
+  text-align: center;
+}
+
+.equity-labels span:first-child {
+  text-align: left;
+}
+
+.equity-labels span:last-child {
+  text-align: right;
+}
+
+/* Responsive */
+@media (min-width: 800px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .risk-panel {
+    grid-column: 1 / -1;
+  }
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}
