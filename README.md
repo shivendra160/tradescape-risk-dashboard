@@ -41,6 +41,15 @@ npm run dev --prefix client   # http://localhost:5173
 
 The SQLite file (`server/tradescape.db`) is created automatically on first run and is git-ignored — delete it to reset to the original seed data.
 
+## Live deployment
+
+- **Client (GitHub Pages):** https://shivendra160.github.io/tradescape-risk-dashboard/
+- **API (Render):** https://tradescape-risk-dashboard-api.onrender.com
+
+Deploy setup:
+- `render.yaml` is a Render Blueprint for the `server/` API (free web service). Render's free tier spins the service down when idle, so the SQLite file resets to seed data on cold start — expected for a demo, not a bug.
+- `.github/workflows/deploy-pages.yml` builds `client/` with `VITE_API_URL` pointed at the Render API and publishes it to GitHub Pages on every push to `main`.
+
 ### Building for production
 
 ```bash
